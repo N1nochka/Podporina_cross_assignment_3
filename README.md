@@ -1,50 +1,104 @@
-# Welcome to your Expo app 👋
+PlasmaDonate - React Native Components
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Аналіз дизайну
 
-## Get started
+У процесі аналізу дизайну мобільного застосунку було визначено основні UI-компоненти, які повторюються на різних екранах:
 
-1. Install dependencies
+1. Input Field - поле вводу (email, пароль, ім'я, прізвище)
+2. Primary Button - основна червона кнопка (#D32F2F)
+3. Outline Button - рамкова кнопка (#B71C1C)
+4. Small Button - мала рамкова кнопка (#D32F2F)
+5. Card - картка-контейнер
+6. Typography - текстові стилі
+7. Tab Bar - нижня навігація
 
-   ```bash
-   npm install
-   ```
+---
 
-2. Start the app
+Завдання 2: Створення компонентів
 
-   ```bash
-   npx expo start
-   ```
+Список компонентів
 
-In the output, you'll find options to open the app in a
+| № | Компонент | Файл | Пропси |
+|---|-----------|------|--------|
+| 1 | CustomInput | CustomInput.tsx | placeholder, value, onChangeText, secureTextEntry |
+| 2 | PrimaryButton | PrimaryButton.tsx | title, onPress, disabled |
+| 3 | OutlineButton | OutlineButton.tsx | title, onPress, disabled |
+| 4 | SmallButton | SmallButton.tsx | title, onPress |
+| 5 | Card | Card.tsx | children |
+| 6 | ScreenContainer | ScreenContainer.tsx | children, scrollable |
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Використані технології:
+- View, Text, TextInput, TouchableOpacity
+- StyleSheet.create()
+- Flexbox (flexDirection, justifyContent, alignItems)
+- Platform.select() / Platform.OS
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+---
 
-## Get a fresh project
+Завдання 3: Адаптивність
 
-When you're ready, run:
+Використані підходи:
+- useWindowDimensions для динамічних розмірів
+- Ширина компонентів: 85-90% від ширини екрану (макс. 400px)
+- Підтримка горизонтальної орієнтації (landscape)
+- Платформозалежні тіні
 
-```bash
-npm run reset-project
-```
+Адаптовані компоненти:
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+| Компонент | Адаптація |
+|-----------|-----------|
+| CustomInput | 85% (макс 400px) |
+| PrimaryButton | 85% (макс 400px) |
+| OutlineButton | 85% (макс 400px) |
+| Card | 90% (макс 400px) |
+| ScreenContainer | Центрування, підтримка landscape |
 
-## Learn more
+---
 
-To learn more about developing your project with Expo, look at the following resources:
+Завдання 4: Додаткові вимоги
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Модульність:
+Кожен компонент в окремому файлі.
 
-## Join the community
+Пропси:
+Всі компоненти приймають динамічні дані через пропси.
 
-Join our community of developers creating universal apps.
+Константи:
+Створено файли в constants/:
+- colors.ts - кольори
+- sizes.ts - розміри та відступи
+- typography.ts - шрифти
+- index.ts - централізований експорт
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Чистота коду:
+- Відсутні магічні числа
+- Додані коментарі
+- Зрозумілі назви
+
+---
+
+Навігація
+
+- Використано @react-navigation/bottom-tabs
+- Екрани: Головна, Запис, Бонуси, Профіль
+- Кастомний заголовок зі стрілкою повернення
+
+---
+
+Скріншоти: 
+- Вхід: (./screenshots/1Login.png)
+- Реєстрація: (./screenshots/2Registration.png)
+- Головний екран: (./screenshots/3Home.png)
+- Екран запису: (./screenshots/4Appointment.png)
+- Екран бонусів: (./screenshots/5Bonuses.png)
+- Екран профілю: (./screenshots/6Profile.png)
+
+---
+
+Підтримувані пристрої
+
+iPhone (всі моделі)
+Android (різні роздільності)
+Планшети (iPad, Android Tablets)
+Горизонтальна орієнтація
+Вертикальна орієнтація
